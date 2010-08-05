@@ -26,7 +26,7 @@ module AutoHash
         end
 
         # Dynamically define the "comparer"
-        define_method "#{field_name}_hash_match?".to_sym do |match|
+        define_method "#{field_name}_hash_match?" do |match|
           existing = send(field_name)
           value = AutoHashBuilder.auto_hash_compare(existing, match.to_s)
         end

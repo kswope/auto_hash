@@ -5,6 +5,8 @@ saving as a salt and digest in a single field.
 
 Works with both rails 2x and 3x
 
+WARNING: untested with ruby 1.9 at the moment.
+
 == Synopsis
 
    # In Model

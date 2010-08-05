@@ -20,3 +20,4 @@ pkg
 
 ## PROJECT::SPECIFIC
 README.html
+*.log
