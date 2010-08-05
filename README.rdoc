@@ -14,6 +14,7 @@ Works with both rails 2x and 3x
 
    # Elsewhere
    user = User.new(:username => "kevin", :password => "asdf")
+   user.password #=> "6cc4ce889e770343f4b0d3708851f6624b5c1dda4bc4b6dd23ace50328fcd3e0-b99d218de031fad5df71"
    user.password_hash_match?("asdf") # => true
 
    # works with updating fields also
