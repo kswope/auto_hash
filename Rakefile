@@ -5,9 +5,10 @@ require 'rake/testtask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
+    summary = %Q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
     gem.name = "auto_hash"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = summary
+    gem.description = summary
     gem.email = "gems-kevdev@snkmail.com"
     gem.homepage = "http://github.com/kswope/auto_hash"
     gem.authors = ["Kevin Swope"]

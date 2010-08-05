@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kevin Swope"]
-  s.date = %q{2010-08-04}
-  s.description = %q{TODO: longer description of your gem}
+  s.date = %q{2010-08-05}
+  s.description = %q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
   s.email = %q{gems-kevdev@snkmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -24,15 +24,88 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/auto_hash.rb"
+     "auto_hash.gemspec",
+     "created.rid",
+     "init.rb",
+     "lib/auto_hash.rb",
+     "log/test.log",
+     "test/common/user_test.rb",
+     "test/rails2x_root/Rakefile",
+     "test/rails2x_root/app/controllers/application_controller.rb",
+     "test/rails2x_root/app/helpers/application_helper.rb",
+     "test/rails2x_root/app/models/user.rb",
+     "test/rails2x_root/config/boot.rb",
+     "test/rails2x_root/config/database.yml",
+     "test/rails2x_root/config/environment.rb",
+     "test/rails2x_root/config/environments/development.rb",
+     "test/rails2x_root/config/environments/production.rb",
+     "test/rails2x_root/config/environments/test.rb",
+     "test/rails2x_root/config/initializers/backtrace_silencers.rb",
+     "test/rails2x_root/config/initializers/cookie_verification_secret.rb",
+     "test/rails2x_root/config/initializers/inflections.rb",
+     "test/rails2x_root/config/initializers/mime_types.rb",
+     "test/rails2x_root/config/initializers/new_rails_defaults.rb",
+     "test/rails2x_root/config/initializers/session_store.rb",
+     "test/rails2x_root/config/locales/en.yml",
+     "test/rails2x_root/config/routes.rb",
+     "test/rails2x_root/db/development.sqlite3",
+     "test/rails2x_root/db/migrate/20100803040436_create_users.rb",
+     "test/rails2x_root/db/schema.rb",
+     "test/rails2x_root/db/seeds.rb",
+     "test/rails2x_root/db/test.sqlite3",
+     "test/rails2x_root/log/development.log",
+     "test/rails2x_root/log/production.log",
+     "test/rails2x_root/log/server.log",
+     "test/rails2x_root/log/test.log",
+     "test/rails2x_root/script/about",
+     "test/rails2x_root/script/console",
+     "test/rails2x_root/script/dbconsole",
+     "test/rails2x_root/script/destroy",
+     "test/rails2x_root/script/generate",
+     "test/rails2x_root/script/performance/benchmarker",
+     "test/rails2x_root/script/performance/profiler",
+     "test/rails2x_root/script/plugin",
+     "test/rails2x_root/script/runner",
+     "test/rails2x_root/script/server",
+     "test/rails2x_root/test/test_helper.rb",
+     "test/rails2x_root/test/unit/user_test.rb",
+     "test/rails3x_root/.gitignore",
+     "test/rails3x_root/Gemfile",
+     "test/rails3x_root/Gemfile.lock",
+     "test/rails3x_root/Rakefile",
+     "test/rails3x_root/app/controllers/application_controller.rb",
+     "test/rails3x_root/app/helpers/application_helper.rb",
+     "test/rails3x_root/app/models/user.rb",
+     "test/rails3x_root/app/views/layouts/application.html.erb",
+     "test/rails3x_root/config/application.rb",
+     "test/rails3x_root/config/boot.rb",
+     "test/rails3x_root/config/database.yml",
+     "test/rails3x_root/config/environment.rb",
+     "test/rails3x_root/config/environments/development.rb",
+     "test/rails3x_root/config/environments/production.rb",
+     "test/rails3x_root/config/environments/test.rb",
+     "test/rails3x_root/config/initializers/backtrace_silencers.rb",
+     "test/rails3x_root/config/initializers/inflections.rb",
+     "test/rails3x_root/config/initializers/mime_types.rb",
+     "test/rails3x_root/config/initializers/secret_token.rb",
+     "test/rails3x_root/config/initializers/session_store.rb",
+     "test/rails3x_root/config/locales/en.yml",
+     "test/rails3x_root/config/routes.rb",
+     "test/rails3x_root/db/migrate/20100804020911_create_users.rb",
+     "test/rails3x_root/db/schema.rb",
+     "test/rails3x_root/db/seeds.rb",
+     "test/rails3x_root/script/rails",
+     "test/rails3x_root/test/test_helper.rb",
+     "test/rails3x_root/test/unit/user_test.rb"
   ]
   s.homepage = %q{http://github.com/kswope/auto_hash}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
   s.test_files = [
-    "test/rails2x_root/app/controllers/application_controller.rb",
+    "test/common/user_test.rb",
+     "test/rails2x_root/app/controllers/application_controller.rb",
      "test/rails2x_root/app/helpers/application_helper.rb",
      "test/rails2x_root/app/models/user.rb",
      "test/rails2x_root/config/boot.rb",
