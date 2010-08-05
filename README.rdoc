@@ -1,6 +1,6 @@
 = auto_hash
 
-Ruby on Rails plugin to automate hashing an activerecord field and
+A Ruby on Rails plugin to automate hashing an activerecord field and
 saving as a salt and digest in a single field.
 
 Works with both rails 2x and 3x
