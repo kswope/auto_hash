@@ -1,6 +1,6 @@
 = auto_hash
 
-Description goes here.
+Description goes here!
 
 == Note on Patches/Pull Requests
  
