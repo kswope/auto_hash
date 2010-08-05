@@ -1,16 +1,52 @@
 = auto_hash
 
-Description goes here!
+Ruby on Rails plugin to automate hashing an activerecord field and
+saving as a salt and digest in a single field.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+Works with both rails 2x and 3x
+
+== Synopsis
+
+   # In Model
+   class User < ActiveRecord::Base
+     auto_hash :password
+   end
+
+   # Elsewhere
+   user = User.new(:username => "kevin", :password => "asdf")
+   user.password_hash_match?("asdf") # => true
+
+   # works with updating fields also
+   user = User.find_by_username("kevin")
+   user.password = "better_password"
+   user.password_hash_match?("better_password") # => true
+
+== Installing
+
+   sudo gem install auto_hash
+
+For rails 2x, in environment.rb
+    Rails::Initializer.run do |config| do
+      config.gem "auto_hash"
+    end
+
+For rails 3x, in Gemfile
+   gem "auto_hash"
+
+
+== Details
+
+The hashing is pretty simple, you'll find something like this in the source:
+
+    salt = ActiveSupport::SecureRandom.hex(10)
+    hash = Digest::SHA2.new.update(value + salt).to_s
+
+The value stored in the database field is a hash appended with its salt, as
+"hash-salt"
+
+In case you weren't sure, a salt is not necessarily a secret - its
+simply a way to defeat dictionary attacks by adding huge variety to
+the hashed value.
 
 == Copyright
 

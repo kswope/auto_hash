@@ -16,7 +16,7 @@ module AutoHash
         # Dynamically define a new setter
         define_method "#{field_name}=" do |value|
 
-          value = AutoHashBuilder.autohash_create(value)
+          value = AutoHashBuilder.auto_hash_create(value)
 
           # write_attribute() is the documented way to write to a AR
           # field after you've overridden the setter,
@@ -26,9 +26,9 @@ module AutoHash
         end
 
         # Dynamically define the "comparer"
-        define_method "#{field_name}_autohash_match?".to_sym do |match|
+        define_method "#{field_name}_hash_match?".to_sym do |match|
           existing = send(field_name)
-          value = AutoHashBuilder.autohash_compare(existing, match.to_s)
+          value = AutoHashBuilder.auto_hash_compare(existing, match.to_s)
         end
 
       end
@@ -41,13 +41,13 @@ module AutoHash
 
       class << self
 
-        def autohash_create(value)
+        def auto_hash_create(value)
           salt = ActiveSupport::SecureRandom.hex(10)
           hash = create_hash(value, salt)
           "#{hash}-#{salt}"
         end
 
-        def autohash_compare(hash, value)
+        def auto_hash_compare(hash, value)
           salt = extract_salt_part(hash)
           hash_old = extract_hash_part(hash)
           hash_new = create_hash(value, salt) # try to recreate same hash

@@ -58,3 +58,9 @@
   [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
   [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "updated_at", "username", "password") VALUES('2010-08-04 11:40:09', '2010-08-04 11:40:09', 'kevin', 'ea344807fdf5ee6669a60314156196e058c76804323a7825462fce2611ecf7cc-8a130f23238def4631a9')[0m
   [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("created_at", "updated_at", "username", "password") VALUES('2010-08-05 04:24:46', '2010-08-05 04:24:46', 'kevin', 'd85790b6b51e4093b6bc33899d3f3ffc853c4d5446988679265ec0d0ceeae741-6401e7cbc904fb71bc74')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "updated_at", "username", "password") VALUES('2010-08-05 04:25:10', '2010-08-05 04:25:10', 'kevin', 'e9a8dc7945d01a5b642d5053f55f3142605b22879da1a8d5d90be8fcc0a9fd6a-a959326a7619a9d76067')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("created_at", "updated_at", "username", "password") VALUES('2010-08-05 04:26:33', '2010-08-05 04:26:33', 'kevin', 'b48fdeb943dc098e84d37329229e69162d28b6c2267b7f8bb36cd3b173fa0246-6343e5163181de54fe7d')[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'kevin') LIMIT 1[0m

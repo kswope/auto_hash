@@ -33,10 +33,10 @@ class UserTest < ActiveSupport::TestCase
     original_password = "asdf"
     @user = User.new(:username => "kevin", :password => original_password)
 
-    assert @user.password_autohash_match?(original_password)
-    assert ! @user.password_autohash_match?("banana")
-    assert ! @user.password_autohash_match?("")
-    assert ! @user.password_autohash_match?(nil)
+    assert @user.password_hash_match?(original_password)
+    assert ! @user.password_hash_match?("banana")
+    assert ! @user.password_hash_match?("")
+    assert ! @user.password_hash_match?(nil)
 
   end
 
@@ -49,10 +49,10 @@ class UserTest < ActiveSupport::TestCase
 
     user = User.find_by_username("kevin")
 
-    assert user.password_autohash_match?(original_password)
-    assert ! user.password_autohash_match?("banana")
-    assert ! user.password_autohash_match?("")
-    assert ! user.password_autohash_match?(nil)
+    assert user.password_hash_match?(original_password)
+    assert ! user.password_hash_match?("banana")
+    assert ! user.password_hash_match?("")
+    assert ! user.password_hash_match?(nil)
 
   end
 
