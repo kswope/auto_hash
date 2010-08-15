@@ -5,7 +5,7 @@ require 'rake/testtask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    summary = %Q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
+    summary = %Q{A Ruby on Rails plugin to automate hashing an activerecord field using bcrypt; an activerecord wrapper for bcrypt-ruby}
     gem.name = "auto_hash"
     gem.summary = summary
     gem.description = summary

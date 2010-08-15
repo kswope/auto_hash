@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{auto_hash}
-  s.version = "0.2.0"
+  s.version = "0.3.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kevin Swope"]
-  s.date = %q{2010-08-11}
-  s.description = %q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
+  s.date = %q{2010-08-14}
+  s.description = %q{A Ruby on Rails plugin to automate hashing an activerecord field using bcrypt; an activerecord wrapper for bcrypt-ruby}
   s.email = %q{gems-kevdev@snkmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -97,7 +97,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Ruby on Rails plugin to automate hashing an activerecord field and saving as a salt and digest in a single field.}
+  s.summary = %q{A Ruby on Rails plugin to automate hashing an activerecord field using bcrypt; an activerecord wrapper for bcrypt-ruby}
   s.test_files = [
     "test/common/user_test.rb",
      "test/rails2x_root/app/controllers/application_controller.rb",
