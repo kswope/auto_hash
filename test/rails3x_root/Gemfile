@@ -31,3 +31,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem "auto_hash", :path => "../.."
 gem "redgreen"
+
+gem 'bcrypt-ruby', :require => "bcrypt"

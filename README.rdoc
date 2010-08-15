@@ -1,13 +1,18 @@
 = auto_hash
 
-A Ruby on Rails plugin to automate hashing an activerecord field and
-saving as a salt and digest in a single field.
+A Ruby on Rails plugin to automate the cryptographic hashing of an
+activerecord field.
+
+UPDATE: auto_hash has quickly evolved to be a activerecord plugin that
+merely wraps the excellent bcrypt-ruby
+library. http://bcrypt-ruby.rubyforge.org
 
 Works with both rails 2x and 3x
 
-WARNING: untested with ruby 1.9 at the moment.
+WARNING: untested with ruby 1.9.2 at the moment. (Couldn't get rails
+3x to work with ruby 1.9.2 - too early I guess)
 
-== Synopsis
+=== Synopsis
 
    # In Model
    class User < ActiveRecord::Base
@@ -15,18 +20,16 @@ WARNING: untested with ruby 1.9 at the moment.
    end
 
    # Elsewhere
-   user = User.new(:username => "kevin", :password => "asdf")
-   user.password #=> "6cc4ce889e770343f4b0d3708851f6624b5c1dda4bc4b6dd23ace50328fcd3e0-b99d218de031fad5df71"
-   user.password_hash_match?("asdf") # => true
+   user = User.create(:email => "kevin@example.com", :password => "asdf")
+   user.password #=> "$2a$10$0DvrQ.HMKRySMJrn0cGEM.AcesF82tkeBfNLTZTZ.VSWePihZD3mG"
+   user.password == "asdf" # => true
 
    # works with updating fields also
-   user = User.find_by_username("kevin")
+   user = User.find_by_email("kevin@example.com")
    user.password = "better_password"
-   user.password_hash_match?("better_password") # => true
+   user.password == "better_password" # => true
 
-== Installing
-
-   sudo gem install auto_hash
+=== Rails configuration (nothing unusual)
 
 For rails 2x, in environment.rb
     Rails::Initializer.run do |config| do
@@ -36,21 +39,6 @@ For rails 2x, in environment.rb
 For rails 3x, in Gemfile
    gem "auto_hash"
 
-
-== Details
-
-The hashing is pretty simple, you'll find something like this in the source:
-
-    salt = ActiveSupport::SecureRandom.hex(10)
-    hash = Digest::SHA2.new.update(value + salt).to_s
-
-The value stored in the database field is a hash appended with its salt, as
-"hash-salt"
-
-In case you weren't sure, a salt is not necessarily a secret - its
-simply a way to defeat dictionary attacks by adding huge variety to
-the hashed value.
-
-== Copyright
+=== Copyright
 
 Copyright (c) 2010 Kevin Swope. See LICENSE for details.

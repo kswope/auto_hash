@@ -6,21 +6,17 @@ class UserTest < ActiveSupport::TestCase
 
   test "simple instantiation" do
 
-    @user = User.new(:username => "kevin", :password => "asdf")
+    @user = User.new(:email => "me@example.com", :password => "asdf")
     assert @user
 
   end
 
-  # We can't exactly test if the new password is a correctly hashed
-  # password until running the comparer method, but we can check if
-  # its nil or blank, or its not still the clear text password - which
-  # would be quite a bug.
-  test "password hashed" do
+  test "password touched" do
 
     original_password = "asdf"
-    @user = User.new(:username => "kevin", :password => original_password)
+    @user = User.new(:email => "me@example.com", :password => original_password)
 
-    assert_equal "kevin", @user.username # make sure other fields untouched
+    assert_equal "me@example.com", @user.email # make sure other fields untouched
     assert_not_equal nil, @user.password
     assert_not_equal "", @user.password
     assert_not_equal original_password, @user.password
@@ -31,12 +27,13 @@ class UserTest < ActiveSupport::TestCase
   test "matching" do
 
     original_password = "asdf"
-    @user = User.new(:username => "kevin", :password => original_password)
 
-    assert @user.password_hash_match?(original_password)
-    assert ! @user.password_hash_match?("banana")
-    assert ! @user.password_hash_match?("")
-    assert ! @user.password_hash_match?(nil)
+    @user = User.new(:email => "me@example.com", :password => original_password)
+
+    assert @user.password == original_password
+    assert ! (@user.password == "banana")
+    assert ! (@user.password == "")
+    assert ! (@user.password == nil)
 
   end
 
@@ -44,15 +41,16 @@ class UserTest < ActiveSupport::TestCase
   test "write, find, match" do
 
     original_password = "asdf"
-    @user = User.new(:username => "kevin", :password => original_password)
-    @user.save
 
-    user = User.find_by_username("kevin")
+    @user = User.create(:email => "me@example.com",
+                        :password => original_password)
 
-    assert user.password_hash_match?(original_password)
-    assert ! user.password_hash_match?("banana")
-    assert ! user.password_hash_match?("")
-    assert ! user.password_hash_match?(nil)
+    user = User.find_by_email("me@example.com")
+
+    assert user.password == original_password
+    assert ! (user.password == "banana")
+    assert ! (user.password == "")
+    assert ! (user.password == nil)
 
   end
 
